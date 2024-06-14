@@ -37,7 +37,12 @@ return {
                 -- tsserver = {},
                 -- volar = {},
                 bashls = {
+                    cmd = { "bash-language-server", "start" },
                     filetypes = { "bash", "sh" },
+                },
+                cmake = {
+                    cmd = { "cmake-language-server" },
+                    filetypes = { "cmake" },
                 },
                 mojo = {},
                 -- use pylsp-mypy for mypy
@@ -51,10 +56,17 @@ return {
                     cmd = {
                         "clangd",
                         "--clang-tidy",
-                        "-j=5",
-                        "--malloc-trim",
+                        "--clang-tidy-checks=*",
+                        "--all-scopes-completion",
+                        "--cross-file-rename",
+                        "--completion-style=detailed",
+                        "--header-insertion-decorators",
+                        "--header-insertion=iwyu",
+                        "--pch-storage=memory",
+                        "-j=16",
                     },
-                    filetypes = { "c" }, -- "cpp"
+                    filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }, -- "cpp"
+
                 },
                 zls = {},
                 rust_analyzer = {
@@ -172,6 +184,7 @@ return {
                             "--inconclusive",
                         },
                     }),
+                    null_ls.builtins.formatting.clang_format,
                     -- lua
                     null_ls.builtins.diagnostics.selene,
                     null_ls.builtins.formatting.stylua,
