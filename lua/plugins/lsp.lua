@@ -82,8 +82,6 @@ return {
                 lua_ls = {
                     cmd = {
                         "lua-language-server",
-                        "-E",
-                        "/usr/share/lua-language-server/main.lua",
                     },
                     settings = {
                         Lua = {
