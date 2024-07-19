@@ -44,7 +44,11 @@ return {
                     cmd = { "cmake-language-server" },
                     filetypes = { "cmake" },
                 },
-                mojo = {},
+                markdown_oxide = {
+                    cmd = { "markdown-oxide" },
+                    filetypes = { "markdown" },
+                },
+                -- mojo = {},
                 -- use pylsp-mypy for mypy
                 -- use python-lsp-ruff for ruff
                 -- use pylsp-inlay-hints for inlay hints
